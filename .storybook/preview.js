@@ -1,6 +1,11 @@
 import '../public/css/tailwind.css';
 
+import { withTailwindTheme } from './withTailwindTheme.decorator';
+
+export const decorators = [withTailwindTheme];
+
 export const parameters = {
+  layout: "fullscreen",
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
@@ -8,4 +13,21 @@ export const parameters = {
       date: /Date$/,
     },
   },
-}
+};
+
+export const globalTypes = {
+  theme: {
+    name: 'Theme',
+    description: 'Global theme for components',
+    toolbar: {
+      icon: 'paintbrush',
+      // Array of plain string values or MenuItem shape
+      items: [
+        { value: 'light', title: 'Light', left: '🌞' },
+        { value: 'dark', title: 'Dark', left: '🌛' },
+      ],
+      // Change title based on selected value
+      dynamicTitle: true,
+    },
+  },
+};
