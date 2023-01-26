@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div>Youtube clone</div>;
+  return <div className="text-blue-400">Youtube clone</div>;
 }
