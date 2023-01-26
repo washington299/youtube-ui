@@ -1,5 +1,3 @@
 export default function Home() {
-  return (
-    <div>Youtube clone</div>
-  )
+  return <div>Youtube clone</div>;
 }
