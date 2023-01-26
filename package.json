@@ -7,8 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "concurrently 'yarn:watch:*'",
+    "watch:storybook": "start-storybook -p 6006",
+    "watch:tailwind": "npx tailwindcss -i ./src/styles/global.css -o ./public/css/tailwind.css --watch",
+    "build-storybook": "concurrently 'yarn:build:*'",
+    "build:storybook": "build-storybook",
+    "build:tailwind": "npx tailwindcss -i ./src/styles/global.css -o ./public/css/tailwind.css"
   },
   "dependencies": {
     "@next/font": "13.1.5",
@@ -34,6 +38,7 @@
     "@storybook/testing-library": "^0.0.13",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^8.3.0",
+    "concurrently": "^7.6.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-storybook": "^0.6.10",
