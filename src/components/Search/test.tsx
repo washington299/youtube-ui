@@ -45,4 +45,30 @@ describe('<Search />', () => {
 
 		expect(input).toHaveValue('');
 	});
+
+	it('should call callback function with correct value on button is click', () => {
+		const mockCallback = jest.fn();
+
+		render(<Search callback={mockCallback} />);
+
+		fireEvent.change(screen.getByPlaceholderText(/Search/i), {
+			target: { value: 'Test' },
+		});
+		fireEvent.click(screen.getByRole('button'));
+
+		expect(mockCallback).toHaveBeenCalledWith('Test');
+	});
+
+	it('should call callback function with correct value when enter is clicked', () => {
+		const mockCallback = jest.fn();
+
+		render(<Search callback={mockCallback} />);
+
+		const input = screen.getByPlaceholderText(/Search/i);
+
+		fireEvent.change(input, { target: { value: 'Test' } });
+		fireEvent.submit(input);
+
+		expect(mockCallback).toHaveBeenCalledWith('Test');
+	});
 });
