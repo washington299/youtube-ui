@@ -4,7 +4,7 @@ import { Search } from '.';
 
 describe('<Search />', () => {
 	it('should render Search elements correctly', () => {
-		render(<Search />);
+		render(<Search callback={() => {}} />);
 
 		expect(screen.getByPlaceholderText(/Search/i)).toBeInTheDocument();
 		expect(screen.getByRole('button')).toBeInTheDocument();
@@ -12,7 +12,7 @@ describe('<Search />', () => {
 	});
 
 	it('should change input value correctly', () => {
-		render(<Search />);
+		render(<Search callback={() => {}} />);
 
 		const input = screen.getByPlaceholderText(/Search/i);
 
@@ -24,7 +24,7 @@ describe('<Search />', () => {
 	});
 
 	it('should show clear input icon when input has some value', () => {
-		render(<Search />);
+		render(<Search callback={() => {}} />);
 
 		const input = screen.getByPlaceholderText(/Search/i);
 
@@ -36,7 +36,7 @@ describe('<Search />', () => {
 	});
 
 	it('should clear input when close icon is clicked', () => {
-		render(<Search />);
+		render(<Search callback={() => {}} />);
 
 		const input = screen.getByPlaceholderText(/Search/i);
 
