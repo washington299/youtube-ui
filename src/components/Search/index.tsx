@@ -1,9 +1,14 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { MicrophoneIcon } from '@heroicons/react/24/solid';
 
 export const Search = () => {
 	const [inputValue, setInputValue] = useState('');
+
+	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) =>
+		setInputValue(e.target.value);
+
+	const clearInput = () => setInputValue('');
 
 	return (
 		<form className="flex w-full items-center">
@@ -13,13 +18,13 @@ export const Search = () => {
 					placeholder="Search"
 					className="w-full rounded-l-full border border-gray-200 py-2 pl-6 pr-8 outline-none focus:border-blue-600 dark:border-gray-700 dark:border-r-neutral-700 dark:bg-zinc-900 dark:text-white dark:focus:border-blue-400"
 					value={inputValue}
-					onChange={e => setInputValue(e.target.value)}
+					onChange={handleInputChange}
 				/>
 				{inputValue.length > 0 && (
 					<XMarkIcon
 						className="absolute right-2 h-5 w-5 cursor-pointer text-gray-500 dark:text-white"
 						title="Clear"
-						onClick={() => setInputValue('')}
+						onClick={clearInput}
 					/>
 				)}
 			</div>
