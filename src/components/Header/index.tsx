@@ -8,13 +8,18 @@ import {
 import { Logo } from 'components/Logo';
 import { Search } from 'components/Search';
 
-export const Header = () => {
+type HeaderProps = {
+	toggleMenu: () => void;
+};
+
+export const Header = ({ toggleMenu }: HeaderProps) => {
 	return (
 		<header className="mb-2 flex items-center justify-between bg-white px-6 dark:bg-neutral-900">
 			<div className="flex items-center space-x-3">
 				<Bars3Icon
 					className="h-7 w-7 cursor-pointer text-gray-500 dark:text-white"
 					title="Menu hamburguer"
+					onClick={toggleMenu}
 				/>
 
 				<Logo />
