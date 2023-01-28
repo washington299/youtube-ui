@@ -1,8 +1,12 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { MicrophoneIcon } from '@heroicons/react/24/solid';
 
-export const Search = () => {
+type SearchProps = {
+	callback: (text: string) => void;
+};
+
+export const Search = ({ callback }: SearchProps) => {
 	const [inputValue, setInputValue] = useState('');
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) =>
@@ -10,8 +14,14 @@ export const Search = () => {
 
 	const clearInput = () => setInputValue('');
 
+	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+
+		callback(inputValue);
+	};
+
 	return (
-		<form className="flex w-full items-center">
+		<form className="flex w-full items-center" onSubmit={handleSubmit}>
 			<div className="relative flex flex-1 items-center">
 				<input
 					type="text"
@@ -28,7 +38,10 @@ export const Search = () => {
 					/>
 				)}
 			</div>
-			<button className="z-10 rounded-r-full border border-gray-200 bg-gray-100 py-2 px-5 hover:bg-gray-200 dark:border-neutral-700 dark:bg-neutral-700 dark:hover:bg-neutral-800">
+			<button
+				type="submit"
+				className="z-10 rounded-r-full border border-gray-200 bg-gray-100 py-2 px-5 hover:bg-gray-200 dark:border-neutral-700 dark:bg-neutral-700 dark:hover:bg-neutral-800"
+			>
 				<MagnifyingGlassIcon className="h-6 w-6 text-gray-500 dark:text-white" />
 			</button>
 			<MicrophoneIcon
