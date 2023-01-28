@@ -22,4 +22,27 @@ describe('<Search />', () => {
 
 		expect(input).toHaveValue('Test');
 	});
+
+	it('should show clear input icon when input has some value', () => {
+		render(<Search />);
+
+		const input = screen.getByPlaceholderText(/Search/i);
+
+		expect(screen.queryByTitle(/Clear/i)).not.toBeInTheDocument();
+
+		fireEvent.change(input, { target: { value: 'Test' } });
+
+		expect(screen.getByTitle(/Clear/i)).toBeInTheDocument();
+	});
+
+	it('should clear input when close icon is clicked', () => {
+		render(<Search />);
+
+		const input = screen.getByPlaceholderText(/Search/i);
+
+		fireEvent.change(input, { target: { value: 'Test' } });
+		fireEvent.click(screen.getByTitle(/Clear/i));
+
+		expect(input).toHaveValue('');
+	});
 });
