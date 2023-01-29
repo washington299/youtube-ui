@@ -41,6 +41,7 @@ export const Search = ({ callback }: SearchProps) => {
 			<button
 				type="submit"
 				className="z-10 rounded-r-full border border-gray-200 bg-gray-100 py-2 px-5 hover:bg-gray-200 dark:border-neutral-700 dark:bg-neutral-700 dark:hover:bg-neutral-800"
+				aria-label="Search"
 			>
 				<MagnifyingGlassIcon className="h-6 w-6 text-gray-500 dark:text-white" />
 			</button>
