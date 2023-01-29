@@ -13,6 +13,10 @@ type HeaderProps = {
 };
 
 export const Header = ({ toggleMenu }: HeaderProps) => {
+	const handleSearch = (text: string) => {
+		alert(text);
+	};
+
 	return (
 		<header className="mb-2 flex items-center justify-between bg-white px-6 dark:bg-neutral-900">
 			<div className="flex items-center space-x-3">
@@ -26,7 +30,7 @@ export const Header = ({ toggleMenu }: HeaderProps) => {
 			</div>
 
 			<div className="hidden flex-1 px-6 md:block">
-				<Search callback={() => {}} />
+				<Search callback={handleSearch} />
 			</div>
 
 			<div className="flex items-center space-x-2">
