@@ -2,6 +2,8 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 import { Header } from '.';
 
+global.alert = jest.fn();
+
 describe('<Header />', () => {
 	it('Should render elements correctly', () => {
 		render(<Header toggleMenu={() => {}} />);
@@ -26,5 +28,16 @@ describe('<Header />', () => {
 		fireEvent.click(screen.getByTitle(/Menu hamburguer/i));
 
 		expect(mockToggleMenu).toBeCalledTimes(1);
+	});
+
+	it('Should show correct text on alert when user search on the form', () => {
+		render(<Header toggleMenu={() => {}} />);
+
+		fireEvent.change(screen.getByPlaceholderText(/Search/i), {
+			target: { value: 'Test' },
+		});
+		fireEvent.click(screen.getByRole('button', { name: /Search/i }));
+
+		expect(global.alert).toHaveBeenCalledWith('Test');
 	});
 });
