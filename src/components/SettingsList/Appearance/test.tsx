@@ -37,5 +37,9 @@ describe('<Appearance />', () => {
 		fireEvent.click(screen.getByText(/Dark theme/i));
 
 		expect(mockToggleTheme).toHaveBeenCalledWith('dark');
+
+		fireEvent.click(screen.getByText(/Light theme/i));
+
+		expect(mockToggleTheme).toHaveBeenCalledWith('light');
 	});
 });
