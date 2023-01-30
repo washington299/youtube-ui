@@ -11,16 +11,16 @@ import {
 	ChatBubbleBottomCenterTextIcon,
 } from '@heroicons/react/24/outline';
 
-import { Appearance } from './Appearance';
+import { Appearance } from '../../components/SettingsList/Appearance';
 
 export const useSettingsItems = () => {
 	const [theme, setTheme] = useState('light');
 
 	const iconStyles = 'mr-4 h-6 w-6';
 
-	const toggleTheme = (newTheme: string) => setTheme(newTheme);
+	const changeTheme = (newTheme: string) => setTheme(newTheme);
 
-	return [
+	const items = [
 		[
 			{
 				icon: <LockClosedIcon className={iconStyles} />,
@@ -33,7 +33,7 @@ export const useSettingsItems = () => {
 				text: `Appearance: ${theme}`,
 				children: {
 					title: 'Appearance',
-					element: <Appearance theme={theme} toggleTheme={toggleTheme} />,
+					element: <Appearance theme={theme} toggleTheme={changeTheme} />,
 				},
 			},
 			{
@@ -82,4 +82,6 @@ export const useSettingsItems = () => {
 			},
 		],
 	];
+
+	return { items, theme, changeTheme };
 };
