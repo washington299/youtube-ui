@@ -16,7 +16,9 @@ export const Appearance = ({ theme, toggleTheme }: AppearanceProps) => {
 
 	return (
 		<div className="dark:text-white">
-			<p>Setting applies to this browser only</p>
+			<p className="text-sm text-gray-500 dark:text-gray-400">
+				Setting applies to this browser only
+			</p>
 
 			<ul className="py-2">
 				<li
