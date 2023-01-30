@@ -6,6 +6,7 @@ import { Appearance } from '.';
 export default {
 	title: 'components/SettingsList/Appearance',
 	component: Appearance,
+	args: { theme: 'light' },
 	argTypes: {
 		toggleTheme: { action: 'clicked' },
 	},
