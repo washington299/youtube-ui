@@ -16,7 +16,7 @@ export const Appearance = ({ theme, toggleTheme }: AppearanceProps) => {
 
 	return (
 		<div className="dark:text-white">
-			<p className="text-sm text-gray-500 dark:text-gray-400">
+			<p className="pl-5 text-sm text-gray-500 dark:text-gray-400">
 				Setting applies to this browser only
 			</p>
 

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
 	LockClosedIcon,
 	MoonIcon,
@@ -10,8 +11,14 @@ import {
 	ChatBubbleBottomCenterTextIcon,
 } from '@heroicons/react/24/outline';
 
+import { Appearance } from './Appearance';
+
 export const useSettingsItems = () => {
+	const [theme, setTheme] = useState('light');
+
 	const iconStyles = 'mr-4 h-6 w-6';
+
+	const toggleTheme = (newTheme: string) => setTheme(newTheme);
 
 	return [
 		[
@@ -23,23 +30,35 @@ export const useSettingsItems = () => {
 		[
 			{
 				icon: <MoonIcon className={iconStyles} />,
-				text: 'Appearance: Light',
-				children: <div>Appearance</div>,
+				text: `Appearance: ${theme}`,
+				children: {
+					title: 'Appearance',
+					element: <Appearance theme={theme} toggleTheme={toggleTheme} />,
+				},
 			},
 			{
 				icon: <LanguageIcon className={iconStyles} />,
 				text: 'Language: English',
-				children: <div>Language</div>,
+				children: {
+					title: 'Language',
+					element: <div>Language</div>,
+				},
 			},
 			{
 				icon: <ShieldExclamationIcon className={iconStyles} />,
 				text: 'Restricted Mode: Off',
-				children: <div>Restricted Mode</div>,
+				children: {
+					title: 'Restricted Mode',
+					element: <div>Restricted Mode</div>,
+				},
 			},
 			{
 				icon: <GlobeAltIcon className={iconStyles} />,
 				text: 'Location: Brazil',
-				children: <div>Location</div>,
+				children: {
+					title: 'Location',
+					element: <div>Location</div>,
+				},
 			},
 			{
 				icon: <ComputerDesktopIcon className={iconStyles} />,

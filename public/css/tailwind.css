@@ -702,6 +702,10 @@ video {
   padding-right: 2rem;
 }
 
+.pl-5 {
+  padding-left: 1.25rem;
+}
+
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
