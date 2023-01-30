@@ -6,7 +6,6 @@ import { Appearance } from '.';
 export default {
 	title: 'components/SettingsList/Appearance',
 	component: Appearance,
-	args: { theme: 'light' },
 	argTypes: {
 		toggleTheme: { action: 'clicked' },
 	},
@@ -19,4 +18,6 @@ const Template: ComponentStory<typeof Appearance> = args => (
 );
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+	theme: 'dark',
+};

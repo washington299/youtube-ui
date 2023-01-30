@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { CheckIcon } from '@heroicons/react/24/outline';
 
 type AppearanceProps = {
-	theme: string;
+	theme: 'light' | 'dark';
 	toggleTheme: (theme: string) => void;
 };
 
 export const Appearance = ({ theme, toggleTheme }: AppearanceProps) => {
 	const [currentTheme, setCurrentTheme] = useState(theme);
 
-	const handleToggleTheme = (newTheme: string) => {
+	const handleToggleTheme = (newTheme: 'light' | 'dark') => {
 		setCurrentTheme(newTheme);
 		toggleTheme(newTheme);
 	};
