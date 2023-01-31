@@ -26,4 +26,18 @@ describe('<Language />', () => {
 		expect(screen.getByLabelText(/english_us/i)).not.toBeVisible();
 		expect(screen.getByLabelText(/portugues_brasil/i)).toBeVisible();
 	});
+
+	it('Should call changeLanguage function with correct language', () => {
+		const mockChangeLanguage = jest.fn();
+
+		renderWithTailwind(
+			<Language language="english_us" changeLanguage={mockChangeLanguage} />,
+		);
+
+		expect(mockChangeLanguage).not.toBeCalled();
+
+		fireEvent.click(screen.getByText('Português (Brasil)'));
+
+		expect(mockChangeLanguage).toBeCalledWith('portugues_brasil');
+	});
 });
