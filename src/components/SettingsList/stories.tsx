@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof SettingsList>;
 
 const Template: ComponentStory<typeof SettingsList> = () => (
-	<div className="h-screen bg-white p-4 dark:bg-black">
+	<div className="bg-white p-4 dark:bg-black">
 		<SettingsList />
 	</div>
 );
