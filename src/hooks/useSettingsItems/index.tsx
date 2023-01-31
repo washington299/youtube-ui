@@ -11,16 +11,24 @@ import {
 	ChatBubbleBottomCenterTextIcon,
 } from '@heroicons/react/24/outline';
 
-import { Appearance } from '../../components/SettingsList/Appearance';
+import { Appearance } from 'components/SettingsList/Appearance';
+import { Language } from 'components/SettingsList/Language';
+import { languagesList } from 'components/SettingsList/Language/languagesList';
 
 export type ThemeType = 'light' | 'dark';
 
 export const useSettingsItems = () => {
 	const [theme, setTheme] = useState<ThemeType>('light');
+	const [language, setLanguage] = useState('english_us');
 
 	const iconStyles = 'mr-4 h-6 w-6';
 
+	const currentLanguageIndex = languagesList.findIndex(
+		item => item.key === language,
+	);
+
 	const changeTheme = (newTheme: ThemeType) => setTheme(newTheme);
+	const changeLanguage = (newLanguage: string) => setLanguage(newLanguage);
 
 	const items = [
 		[
@@ -40,10 +48,12 @@ export const useSettingsItems = () => {
 			},
 			{
 				icon: <LanguageIcon className={iconStyles} />,
-				text: 'Language: English',
+				text: `Language: ${languagesList[currentLanguageIndex].language}`,
 				children: {
-					title: 'Language',
-					element: <div>Language</div>,
+					title: 'Choose your language',
+					element: (
+						<Language language={language} changeLanguage={changeLanguage} />
+					),
 				},
 			},
 			{
@@ -85,5 +95,5 @@ export const useSettingsItems = () => {
 		],
 	];
 
-	return { items, theme, changeTheme };
+	return { items, theme, changeTheme, language, changeLanguage };
 };
