@@ -17,7 +17,7 @@ export const Language = ({ language, changeLanguage }: LanguageProps) => {
 	};
 
 	return (
-		<ul className="py-2">
+		<ul className="py-2 dark:text-white">
 			{languagesList.map(({ language, key }) => (
 				<li
 					key={key}
