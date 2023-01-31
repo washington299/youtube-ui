@@ -6,8 +6,24 @@ import { Language } from '.';
 
 describe('<Language />', () => {
 	it('Should render languages list correctly', () => {
-		renderWithTailwind(<Language />);
+		renderWithTailwind(
+			<Language language="english_us" changeLanguage={() => {}} />,
+		);
 
 		expect(screen.getAllByRole('listitem')).toHaveLength(23);
+	});
+
+	it('Should render CheckIcon on default language and toggle between languages', () => {
+		renderWithTailwind(
+			<Language language="english_us" changeLanguage={() => {}} />,
+		);
+
+		expect(screen.getByLabelText(/english_us/i)).toBeVisible();
+		expect(screen.getByLabelText(/portugues_brasil/i)).not.toBeVisible();
+
+		fireEvent.click(screen.getByText('Português (Brasil)'));
+
+		expect(screen.getByLabelText(/english_us/i)).not.toBeVisible();
+		expect(screen.getByLabelText(/portugues_brasil/i)).toBeVisible();
 	});
 });
