@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import { CheckIcon } from '@heroicons/react/24/outline';
 
+import { ThemeType } from 'hooks/useSettingsItems';
+
 type AppearanceProps = {
-	theme: 'light' | 'dark';
-	toggleTheme: (theme: string) => void;
+	theme: ThemeType;
+	toggleTheme: (theme: ThemeType) => void;
 };
 
 export const Appearance = ({ theme, toggleTheme }: AppearanceProps) => {
 	const [currentTheme, setCurrentTheme] = useState(theme);
 
-	const handleToggleTheme = (newTheme: 'light' | 'dark') => {
+	const handleToggleTheme = (newTheme: ThemeType) => {
 		setCurrentTheme(newTheme);
 		toggleTheme(newTheme);
 	};

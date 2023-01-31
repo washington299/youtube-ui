@@ -13,12 +13,14 @@ import {
 
 import { Appearance } from '../../components/SettingsList/Appearance';
 
+export type ThemeType = 'light' | 'dark';
+
 export const useSettingsItems = () => {
-	const [theme, setTheme] = useState('light');
+	const [theme, setTheme] = useState<ThemeType>('light');
 
 	const iconStyles = 'mr-4 h-6 w-6';
 
-	const changeTheme = (newTheme: string) => setTheme(newTheme);
+	const changeTheme = (newTheme: ThemeType) => setTheme(newTheme);
 
 	const items = [
 		[
