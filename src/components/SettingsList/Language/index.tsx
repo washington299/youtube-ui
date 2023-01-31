@@ -13,6 +13,7 @@ export const Language = ({ language, changeLanguage }: LanguageProps) => {
 
 	const handleChangeLanguage = (lang: string) => {
 		setCurrentLanguage(lang);
+		changeLanguage(lang);
 	};
 
 	return (
