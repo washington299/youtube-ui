@@ -20,4 +20,22 @@ describe('useSettingsItems()', () => {
 
 		expect(result.current.theme).toBe('light');
 	});
+
+	it('Should change Language correctly', () => {
+		const { result } = renderHook(() => useSettingsItems());
+
+		expect(result.current.language).toBe('english_us');
+
+		act(() => {
+			result.current.changeLanguage('portugues_brasil');
+		});
+
+		expect(result.current.language).toBe('portugues_brasil');
+
+		act(() => {
+			result.current.changeLanguage('english_us');
+		});
+
+		expect(result.current.language).toBe('english_us');
+	});
 });
