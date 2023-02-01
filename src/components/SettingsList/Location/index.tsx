@@ -5,13 +5,15 @@ import { LocationsList } from './locationsList';
 
 type LocationProps = {
 	location: string;
+	changeLocation: (location: string) => void;
 };
 
-export const Location = ({ location }: LocationProps) => {
+export const Location = ({ location, changeLocation }: LocationProps) => {
 	const [currentLocation, setCurrentLocation] = useState(location);
 
 	const handleChangeLocation = (key: string) => {
 		setCurrentLocation(key);
+		changeLocation(key);
 	};
 
 	return (
