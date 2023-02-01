@@ -1,13 +1,17 @@
-import { useState } from 'react';
-
 import { Switch } from 'components/Switch';
 
 type RestrictedModeProps = {
 	checked?: boolean;
+	toggleSwitch: (value: 'off' | 'on') => void;
 };
 
-export const RestrictedMode = ({ checked = false }: RestrictedModeProps) => {
-	const [isChecked, setIsChecked] = useState(checked);
+export const RestrictedMode = ({
+	checked = false,
+	toggleSwitch,
+}: RestrictedModeProps) => {
+	const handleToggleSwitch = (isChecked: boolean) => {
+		toggleSwitch(isChecked ? 'on' : 'off');
+	};
 
 	return (
 		<div>
@@ -19,8 +23,8 @@ export const RestrictedMode = ({ checked = false }: RestrictedModeProps) => {
 
 			<Switch
 				label="Activate Restricted Mode"
-				checked={isChecked}
-				toggleSwitch={() => {}}
+				checked={checked}
+				toggleSwitch={handleToggleSwitch}
 			/>
 		</div>
 	);
