@@ -14,4 +14,20 @@ describe('<Switch />', () => {
 
 		expect(screen.getByRole('checkbox')).toBeChecked();
 	});
+
+	it('Should toggle checkbox', () => {
+		render(<Switch label="Switch text" />);
+
+		const inputCheckbox = screen.getByRole('checkbox');
+
+		expect(inputCheckbox).not.toBeChecked();
+
+		fireEvent.click(inputCheckbox);
+
+		expect(inputCheckbox).toBeChecked();
+
+		fireEvent.click(inputCheckbox);
+
+		expect(inputCheckbox).not.toBeChecked();
+	});
 });
