@@ -1,6 +1,14 @@
+import { useState } from 'react';
+
 import { Switch } from 'components/Switch';
 
-export const RestrictedMode = () => {
+type RestrictedModeProps = {
+	checked?: boolean;
+};
+
+export const RestrictedMode = ({ checked = false }: RestrictedModeProps) => {
+	const [isChecked, setIsChecked] = useState(checked);
+
 	return (
 		<div>
 			<p>
@@ -9,7 +17,11 @@ export const RestrictedMode = () => {
 
 			<p>This setting only applies to this browser.</p>
 
-			<Switch label="Activate Restricted Mode" toggleSwitch={() => {}} />
+			<Switch
+				label="Activate Restricted Mode"
+				checked={isChecked}
+				toggleSwitch={() => {}}
+			/>
 		</div>
 	);
 };
