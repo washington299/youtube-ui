@@ -56,4 +56,22 @@ describe('useSettingsItems()', () => {
 
 		expect(result.current.restrictedMode).toBe('off');
 	});
+
+	it('Should change location correctly', () => {
+		const { result } = renderHook(() => useSettingsItems());
+
+		expect(result.current.location).toBe('brazil');
+
+		act(() => {
+			result.current.changeLocation('portugal');
+		});
+
+		expect(result.current.location).toBe('portugal');
+
+		act(() => {
+			result.current.changeLocation('brazil');
+		});
+
+		expect(result.current.location).toBe('brazil');
+	});
 });
