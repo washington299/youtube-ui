@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import { RestrictedMode } from '.';
 
@@ -15,5 +15,11 @@ describe('<RestrictedMode />', () => {
 			screen.getByText(/This setting only applies to this browser./i),
 		).toBeInTheDocument();
 		expect(screen.getByRole('checkbox')).toBeInTheDocument();
+	});
+
+	it('Should mark switch checked when checked prop is true', () => {
+		render(<RestrictedMode checked />);
+
+		expect(screen.getByRole('checkbox')).toBeChecked();
 	});
 });
