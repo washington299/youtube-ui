@@ -3,13 +3,19 @@ import { ChangeEvent, useState } from 'react';
 type SwitchProps = {
 	label: string;
 	checked?: boolean;
+	toggleSwitch: (check: boolean) => void;
 };
 
-export const Switch = ({ label, checked = false }: SwitchProps) => {
+export const Switch = ({
+	label,
+	checked = false,
+	toggleSwitch,
+}: SwitchProps) => {
 	const [isChecked, setIsChecked] = useState(checked);
 
 	const handleChangeCheckbox = (e: ChangeEvent<HTMLInputElement>) => {
 		setIsChecked(e.target.checked);
+		toggleSwitch(e.target.checked);
 	};
 
 	return (
