@@ -38,4 +38,22 @@ describe('useSettingsItems()', () => {
 
 		expect(result.current.language).toBe('english_us');
 	});
+
+	it('Should change restricted mode correctly', () => {
+		const { result } = renderHook(() => useSettingsItems());
+
+		expect(result.current.restrictedMode).toBe('off');
+
+		act(() => {
+			result.current.toggleRestrictedMode('on');
+		});
+
+		expect(result.current.restrictedMode).toBe('on');
+
+		act(() => {
+			result.current.toggleRestrictedMode('off');
+		});
+
+		expect(result.current.restrictedMode).toBe('off');
+	});
 });
