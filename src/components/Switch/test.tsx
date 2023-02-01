@@ -8,4 +8,10 @@ describe('<Switch />', () => {
 
 		expect(screen.getByText(/Switch text/i)).toBeInTheDocument();
 	});
+
+	it('Should mark checkbox as checked by default', () => {
+		render(<Switch label="Switch text" checked />);
+
+		expect(screen.getByRole('checkbox')).toBeChecked();
+	});
 });
