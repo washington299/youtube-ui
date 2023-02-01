@@ -14,12 +14,14 @@ import {
 import { Appearance } from 'components/SettingsList/Appearance';
 import { Language } from 'components/SettingsList/Language';
 import { languagesList } from 'components/SettingsList/Language/languagesList';
+import { RestrictedMode } from 'components/SettingsList/RestrictedMode';
 
 export type ThemeType = 'light' | 'dark';
 
 export const useSettingsItems = () => {
 	const [theme, setTheme] = useState<ThemeType>('light');
 	const [language, setLanguage] = useState('english_us');
+	const [restrictedMode, setRestrictedMode] = useState('off');
 
 	const iconStyles = 'mr-4 h-6 w-6';
 
@@ -29,6 +31,8 @@ export const useSettingsItems = () => {
 
 	const changeTheme = (newTheme: ThemeType) => setTheme(newTheme);
 	const changeLanguage = (newLanguage: string) => setLanguage(newLanguage);
+	const toggleRestrictedMode = (value: 'off' | 'on') =>
+		setRestrictedMode(value);
 
 	const items = [
 		[
@@ -58,10 +62,15 @@ export const useSettingsItems = () => {
 			},
 			{
 				icon: <ShieldExclamationIcon className={iconStyles} />,
-				text: 'Restricted Mode: Off',
+				text: `Restricted Mode: ${restrictedMode}`,
 				children: {
 					title: 'Restricted Mode',
-					element: <div>Restricted Mode</div>,
+					element: (
+						<RestrictedMode
+							checked={restrictedMode === 'on'}
+							toggleSwitch={toggleRestrictedMode}
+						/>
+					),
 				},
 			},
 			{
@@ -95,5 +104,13 @@ export const useSettingsItems = () => {
 		],
 	];
 
-	return { items, theme, changeTheme, language, changeLanguage };
+	return {
+		items,
+		theme,
+		changeTheme,
+		language,
+		changeLanguage,
+		restrictedMode,
+		toggleRestrictedMode,
+	};
 };
