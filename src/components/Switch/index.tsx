@@ -20,7 +20,7 @@ export const Switch = ({
 
 	return (
 		<label className="inline-flex cursor-pointer items-center">
-			<span className="ml-3 text-sm font-bold uppercase text-neutral-400">
+			<span className="text-sm font-bold uppercase text-neutral-400">
 				{label}
 			</span>
 			<input

@@ -14,12 +14,12 @@ export const RestrictedMode = ({
 	};
 
 	return (
-		<div>
-			<p>
+		<div className="px-4">
+			<p className="mb-3">
 				This helps hide potentially mature videos. No filter is 100% accurate.
 			</p>
 
-			<p>This setting only applies to this browser.</p>
+			<p className="mb-3">This setting only applies to this browser.</p>
 
 			<Switch
 				label="Activate Restricted Mode"
