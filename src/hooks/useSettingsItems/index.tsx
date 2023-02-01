@@ -15,6 +15,8 @@ import { Appearance } from 'components/SettingsList/Appearance';
 import { Language } from 'components/SettingsList/Language';
 import { languagesList } from 'components/SettingsList/Language/languagesList';
 import { RestrictedMode } from 'components/SettingsList/RestrictedMode';
+import { Location } from 'components/SettingsList/Location';
+import { locationsList } from 'components/SettingsList/Location/locationsList';
 
 export type ThemeType = 'light' | 'dark';
 
@@ -22,17 +24,22 @@ export const useSettingsItems = () => {
 	const [theme, setTheme] = useState<ThemeType>('light');
 	const [language, setLanguage] = useState('english_us');
 	const [restrictedMode, setRestrictedMode] = useState('off');
+	const [location, setLocation] = useState('brazil');
 
 	const iconStyles = 'mr-4 h-6 w-6';
 
 	const currentLanguageIndex = languagesList.findIndex(
 		item => item.key === language,
 	);
+	const currentLocationIndex = locationsList.findIndex(
+		item => item.key === location,
+	);
 
 	const changeTheme = (newTheme: ThemeType) => setTheme(newTheme);
 	const changeLanguage = (newLanguage: string) => setLanguage(newLanguage);
 	const toggleRestrictedMode = (value: 'off' | 'on') =>
 		setRestrictedMode(value);
+	const changeLocation = (newLocation: string) => setLocation(newLocation);
 
 	const items = [
 		[
@@ -75,10 +82,12 @@ export const useSettingsItems = () => {
 			},
 			{
 				icon: <GlobeAltIcon className={iconStyles} />,
-				text: 'Location: Brazil',
+				text: `Location: ${locationsList[currentLocationIndex].location}`,
 				children: {
-					title: 'Location',
-					element: <div>Location</div>,
+					title: 'Choose your location',
+					element: (
+						<Location location={location} changeLocation={changeLocation} />
+					),
 				},
 			},
 			{
@@ -112,5 +121,7 @@ export const useSettingsItems = () => {
 		changeLanguage,
 		restrictedMode,
 		toggleRestrictedMode,
+		location,
+		changeLocation,
 	};
 };

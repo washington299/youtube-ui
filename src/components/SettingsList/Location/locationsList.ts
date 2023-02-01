@@ -1,4 +1,4 @@
-export const LocationsList = [
+export const locationsList = [
 	{
 		location: 'Algeria',
 		key: 'algeria',

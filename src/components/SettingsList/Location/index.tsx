@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CheckIcon } from '@heroicons/react/24/outline';
 
-import { LocationsList } from './locationsList';
+import { locationsList } from './locationsList';
 
 type LocationProps = {
 	location: string;
@@ -18,7 +18,7 @@ export const Location = ({ location, changeLocation }: LocationProps) => {
 
 	return (
 		<ul className="py-2 dark:text-white">
-			{LocationsList.map(({ location, key }) => (
+			{locationsList.map(({ location, key }) => (
 				<li
 					key={key}
 					className="flex cursor-pointer items-center px-5 py-2 hover:bg-gray-50 dark:hover:bg-neutral-700"
