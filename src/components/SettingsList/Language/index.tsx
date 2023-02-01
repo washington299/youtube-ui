@@ -29,6 +29,7 @@ export const Language = ({ language, changeLanguage }: LanguageProps) => {
 							currentLanguage === key ? 'opacity-100' : 'opacity-0'
 						}`}
 						aria-label={key}
+						aria-hidden={currentLanguage !== key}
 					/>
 					{language}
 				</li>

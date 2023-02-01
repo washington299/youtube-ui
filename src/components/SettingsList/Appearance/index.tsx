@@ -32,6 +32,7 @@ export const Appearance = ({ theme, toggleTheme }: AppearanceProps) => {
 							currentTheme === 'dark' ? 'opacity-100' : 'opacity-0'
 						}`}
 						aria-label="dark theme"
+						aria-hidden={currentTheme === 'light'}
 					/>
 					Dark theme
 				</li>
@@ -44,6 +45,7 @@ export const Appearance = ({ theme, toggleTheme }: AppearanceProps) => {
 							currentTheme === 'light' ? 'opacity-100' : 'opacity-0'
 						}`}
 						aria-label="light theme"
+						aria-hidden={currentTheme === 'dark'}
 					/>
 					Light theme
 				</li>

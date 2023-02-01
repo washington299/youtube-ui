@@ -1,7 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { renderWithTailwind } from 'utils/tests/helpers';
-
 import { Appearance } from '.';
 
 describe('<Appearance />', () => {
@@ -13,18 +11,18 @@ describe('<Appearance />', () => {
 	});
 
 	it('Should render correct selected theme based on active theme', () => {
-		renderWithTailwind(<Appearance theme="light" toggleTheme={() => {}} />);
+		render(<Appearance theme="light" toggleTheme={() => {}} />);
 
 		const darkCheckedIcon = screen.getByLabelText(/Dark theme/i);
 		const lightCheckedIcon = screen.getByLabelText(/Light theme/i);
 
-		expect(darkCheckedIcon).not.toBeVisible();
-		expect(lightCheckedIcon).toBeVisible();
+		expect(darkCheckedIcon.getAttribute('aria-hidden')).toBe('true');
+		expect(lightCheckedIcon.getAttribute('aria-hidden')).toBe('false');
 
 		fireEvent.click(screen.getByText(/Dark theme/i));
 
-		expect(lightCheckedIcon).not.toBeVisible();
-		expect(darkCheckedIcon).toBeVisible();
+		expect(lightCheckedIcon.getAttribute('aria-hidden')).toBe('true');
+		expect(darkCheckedIcon.getAttribute('aria-hidden')).toBe('false');
 	});
 
 	it('Should call toggleTheme with correct theme value when any theme is selected', () => {
