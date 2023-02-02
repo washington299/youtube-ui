@@ -15,7 +15,7 @@ export const SettingsList = () => {
 	const { items } = useSettingsItems();
 
 	return (
-		<div className="w-80 divide-y border border-gray-200 bg-white dark:divide-gray-600 dark:border-gray-600 dark:bg-neutral-900 dark:text-white">
+		<div className="absolute -left-52 top-6 z-50 w-80 divide-y border border-gray-200 bg-white dark:divide-gray-600 dark:border-gray-600 dark:bg-neutral-900 dark:text-white">
 			{activeChildren ? (
 				<div className="divide-y dark:divide-gray-600">
 					<div className="flex items-center py-3 px-4">
