@@ -40,4 +40,18 @@ describe('<Header />', () => {
 
 		expect(global.alert).toHaveBeenCalledWith('Test');
 	});
+
+	it('Should show full search component when search icon is clicked', () => {
+		render(<Header toggleMenu={() => {}} />);
+
+		expect(screen.queryByLabelText(/Full search/i)).not.toBeInTheDocument();
+
+		fireEvent.click(screen.getByTitle(/Search/i));
+
+		expect(screen.getByLabelText(/Full search/i)).toBeInTheDocument();
+
+		fireEvent.click(screen.getByTitle(/Arrow back/i));
+
+		expect(screen.queryByLabelText(/Full search/i)).not.toBeInTheDocument();
+	});
 });
