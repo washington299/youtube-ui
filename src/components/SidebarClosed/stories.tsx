@@ -10,7 +10,7 @@ export default {
 } as ComponentMeta<typeof SidebarClosed>;
 
 const Template: ComponentStory<typeof SidebarClosed> = args => (
-	<div className="h-screen bg-slate-100 dark:bg-neutral-900">
+	<div className="h-screen bg-slate-100 dark:bg-neutral-600">
 		<SidebarClosed {...args} />
 	</div>
 );
