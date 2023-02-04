@@ -20,4 +20,13 @@ describe('<ListItem />', () => {
 		expect(screen.queryByLabelText(/Home icon solid/i)).not.toBeInTheDocument();
 		expect(screen.getByText(/Home/i)).toBeInTheDocument();
 	});
+
+	it('Should render correct icon based on isCurrentPage prop', () => {
+		render(<ListItem {...mockItem} isCurrentPage />);
+
+		expect(screen.getByLabelText(/Home icon solid/i)).toBeInTheDocument();
+		expect(
+			screen.queryByLabelText(/Home icon outline/i),
+		).not.toBeInTheDocument();
+	});
 });
