@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router';
+
 import { SidebarItemsProps } from 'hooks/useSidebarOpenItems';
 
 import { ListItem } from 'components/SidebarOpen/ListItem';
@@ -7,7 +9,7 @@ type ListItemsProps = {
 };
 
 export const ListItems = ({ items }: ListItemsProps) => {
-	const currentPage = '/';
+	const { pathname } = useRouter();
 
 	return (
 		<ul>
@@ -18,7 +20,7 @@ export const ListItems = ({ items }: ListItemsProps) => {
 					IconSolid={IconSolid}
 					link={link}
 					name={name}
-					isCurrentPage={currentPage === link}
+					isCurrentPage={pathname === link}
 				/>
 			))}
 		</ul>
