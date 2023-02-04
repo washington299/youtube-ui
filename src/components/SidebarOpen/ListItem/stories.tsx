@@ -8,6 +8,10 @@ export default {
 	title: 'components/SidebarOpen/ListItem',
 	component: ListItem,
 	args: { ...mockItem, isCurrentPage: false },
+	argTypes: {
+		IconOutline: { control: { type: '' } },
+		IconSolid: { control: { type: '' } },
+	},
 } as ComponentMeta<typeof ListItem>;
 
 const Template: ComponentStory<typeof ListItem> = args => (
