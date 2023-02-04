@@ -15,7 +15,11 @@ export const ListItem = ({
 }: ListItemProps) => {
 	return (
 		<Link key={link} href={link}>
-			<li>
+			<li
+				className={`flex items-center py-2 px-5 hover:bg-gray-100 dark:text-white dark:hover:bg-neutral-600 ${
+					isCurrentPage && 'bg-gray-100 dark:bg-neutral-600'
+				}`}
+			>
 				{isCurrentPage ? (
 					<IconSolid className="h-6 w-6" aria-label={`${name} icon solid`} />
 				) : (
@@ -24,7 +28,9 @@ export const ListItem = ({
 						aria-label={`${name} icon outline`}
 					/>
 				)}
-				{name}
+				<span className={`ml-2 ${isCurrentPage && 'font-semibold'}`}>
+					{name}
+				</span>
 			</li>
 		</Link>
 	);
