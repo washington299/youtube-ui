@@ -2,7 +2,7 @@ import { sidebarOpenItems } from './sidebarOpenItems';
 
 export const SidebarOpen = () => {
 	return (
-		<nav className="h-screen w-64 divide-y overflow-y-auto bg-white dark:divide-gray-500 dark:bg-neutral-700">
+		<nav className="h-screen w-64 divide-y overflow-y-auto bg-white dark:divide-gray-500 dark:bg-neutral-800">
 			{sidebarOpenItems.map(({ title, component }, index) => (
 				<div key={index} className="py-3">
 					{!!title && (

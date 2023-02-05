@@ -8,7 +8,7 @@ export type SidebarProps = {
 
 export const SidebarClosed = ({ currentPage }: SidebarProps) => {
 	return (
-		<nav className="h-screen w-20 bg-white dark:bg-neutral-900">
+		<nav className="h-screen w-20 bg-white dark:bg-neutral-800">
 			<ul className="py-2 dark:text-white">
 				{sidebarClosedItems.map(({ iconOutline, iconSolid, title, link }) => {
 					const isCurrentPage = currentPage === link;
