@@ -1,34 +1,12 @@
 import { render, screen } from '@testing-library/react';
-import {
-	HomeIcon as HomeIconOutline,
-	FilmIcon as FilmIconOutline,
-} from '@heroicons/react/24/outline';
-import {
-	HomeIcon as HomeIconSolid,
-	FilmIcon as FilmIconSolid,
-} from '@heroicons/react/24/solid';
 
 import { ListItems } from '.';
+import { mockItems } from './mock';
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter');
 useRouter.mockImplementation(() => ({
 	pathname: '/shorts',
 }));
-
-const mockItems = [
-	{
-		IconOutline: HomeIconOutline,
-		IconSolid: HomeIconSolid,
-		name: 'Home',
-		link: '/',
-	},
-	{
-		IconOutline: FilmIconOutline,
-		IconSolid: FilmIconSolid,
-		name: 'Shorts',
-		link: '/shorts',
-	},
-];
 
 describe('<ListItems />', () => {
 	it('Should render elements list of items correctly', () => {
