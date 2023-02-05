@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { SidebarItemsProps } from 'hooks/useSidebarOpenItems';
 
@@ -9,6 +10,7 @@ type ListItemProps = SidebarItemsProps & {
 export const ListItem = ({
 	IconOutline,
 	IconSolid,
+	icon,
 	link,
 	name,
 	isCurrentPage,
@@ -20,13 +22,23 @@ export const ListItem = ({
 					isCurrentPage && 'bg-gray-100 dark:bg-neutral-600'
 				}`}
 			>
-				{isCurrentPage ? (
-					<IconSolid className="h-6 w-6" aria-label={`${name} icon solid`} />
+				{!!icon ? (
+					<Image src={icon} alt={name} width={20} height={20} />
 				) : (
-					<IconOutline
-						className="h-6 w-6"
-						aria-label={`${name} icon outline`}
-					/>
+					<>
+						{isCurrentPage && IconSolid && (
+							<IconSolid
+								className="h-6 w-6"
+								aria-label={`${name} icon solid`}
+							/>
+						)}
+						{!isCurrentPage && IconOutline && (
+							<IconOutline
+								className="h-6 w-6"
+								aria-label={`${name} icon outline`}
+							/>
+						)}
+					</>
 				)}
 				<span className={`ml-2 ${isCurrentPage && 'font-semibold'}`}>
 					{name}

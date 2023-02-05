@@ -13,11 +13,12 @@ export const ListItems = ({ items }: ListItemsProps) => {
 
 	return (
 		<ul>
-			{items.map(({ IconOutline, IconSolid, link, name }) => (
+			{items.map(({ IconOutline, IconSolid, icon, link, name }) => (
 				<ListItem
 					key={link}
 					IconOutline={IconOutline}
 					IconSolid={IconSolid}
+					icon={icon}
 					link={link}
 					name={name}
 					isCurrentPage={pathname === link}
