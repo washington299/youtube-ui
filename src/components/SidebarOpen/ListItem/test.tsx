@@ -21,4 +21,10 @@ describe('<ListItem />', () => {
 			screen.queryByLabelText(/Home icon outline/i),
 		).not.toBeInTheDocument();
 	});
+
+	it('Should render next image if icon prop is provided', () => {
+		render(<ListItem {...mockItem} icon="/logo.svg" isCurrentPage={false} />);
+
+		expect(screen.getByRole('img')).toHaveAttribute('src', '/logo.svg');
+	});
 });
