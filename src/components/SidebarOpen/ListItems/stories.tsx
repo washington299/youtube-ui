@@ -7,7 +7,7 @@ import { mockItems } from './mock';
 export default {
 	title: 'components/SidebarOpen/ListItems',
 	component: ListItems,
-	args: { items: mockItems },
+	args: { items: mockItems, currentPage: '/' },
 } as ComponentMeta<typeof ListItems>;
 
 const Template: ComponentStory<typeof ListItems> = args => (

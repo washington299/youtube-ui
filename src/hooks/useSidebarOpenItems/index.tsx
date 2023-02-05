@@ -199,28 +199,32 @@ const contactItems: SidebarItemsProps[] = [
 	},
 ];
 
-export const sidebarOpenItems = [
+export const useSidebarOpenItems = (currentPage: string) => [
 	{
-		component: <ListItems items={initialItems} />,
+		component: <ListItems items={initialItems} currentPage={currentPage} />,
 	},
 	{
-		component: <ListItems items={storageVideoItems} />,
+		component: (
+			<ListItems items={storageVideoItems} currentPage={currentPage} />
+		),
 	},
 	{
 		component: <SignInSection />,
 	},
 	{
 		title: 'EXPLORE',
-		component: <ListItems items={exporeItems} />,
+		component: <ListItems items={exporeItems} currentPage={currentPage} />,
 	},
 	{
-		component: <ListItems items={browseChannelsItems} />,
+		component: (
+			<ListItems items={browseChannelsItems} currentPage={currentPage} />
+		),
 	},
 	{
-		component: <ListItems items={youtubeItems} />,
+		component: <ListItems items={youtubeItems} currentPage={currentPage} />,
 	},
 	{
 		title: 'MORE FROM YOUTUBE',
-		component: <ListItems items={contactItems} />,
+		component: <ListItems items={contactItems} currentPage={currentPage} />,
 	},
 ];

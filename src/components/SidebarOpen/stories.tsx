@@ -6,11 +6,12 @@ import { SidebarOpen } from '.';
 export default {
 	title: 'components/SidebarOpen',
 	component: SidebarOpen,
+	args: { currentPage: '/' },
 } as ComponentMeta<typeof SidebarOpen>;
 
-const Template: ComponentStory<typeof SidebarOpen> = () => (
+const Template: ComponentStory<typeof SidebarOpen> = args => (
 	<div className="bg-slate-100 dark:bg-neutral-900">
-		<SidebarOpen />
+		<SidebarOpen {...args} />
 	</div>
 );
 

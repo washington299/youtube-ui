@@ -27,4 +27,5 @@ Default.args = {};
 export const WithIconImage = Template.bind({});
 WithIconImage.args = {
 	icon: '/logo.svg',
+	name: 'Youtube',
 };
