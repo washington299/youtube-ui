@@ -1,4 +1,5 @@
 import '../public/css/tailwind.css';
+import { RouterContext } from "next/dist/shared/lib/router-context"; // next 12
 
 import { withTailwindTheme } from './withTailwindTheme.decorator';
 
@@ -12,6 +13,9 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  nextRouter: {
+    Provider: RouterContext.Provider,
   },
 };
 
