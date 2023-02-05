@@ -2,13 +2,13 @@ import { useState } from 'react';
 import {
 	Bars3Icon,
 	MagnifyingGlassIcon,
-	UserCircleIcon,
 	ArrowLeftIcon,
 } from '@heroicons/react/24/outline';
 
 import { Logo } from 'components/Logo';
 import { Search } from 'components/Search';
 import { SettingsDropdown } from 'components/SettingsDropdown';
+import { SignInButton } from 'components/SignInButton';
 
 type HeaderProps = {
 	toggleMenu: () => void;
@@ -55,10 +55,7 @@ export const Header = ({ toggleMenu }: HeaderProps) => {
 							onClick={() => setShowFullSearch(true)}
 						/>
 						<SettingsDropdown />
-						<button className="flex items-center border border-blue-500 py-1 px-2 text-sm font-bold text-blue-500 dark:border-blue-400 dark:text-blue-400">
-							<UserCircleIcon className="mr-1 h-6 w-6 text-blue-500 dark:text-blue-400" />
-							SIGN IN
-						</button>
+						<SignInButton />
 					</div>
 				</>
 			)}
