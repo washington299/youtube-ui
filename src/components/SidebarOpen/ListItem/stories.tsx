@@ -11,6 +11,7 @@ export default {
 	argTypes: {
 		IconOutline: { control: { type: '' } },
 		IconSolid: { control: { type: '' } },
+		icon: { control: { type: '' } },
 	},
 } as ComponentMeta<typeof ListItem>;
 
@@ -22,3 +23,8 @@ const Template: ComponentStory<typeof ListItem> = args => (
 
 export const Default = Template.bind({});
 Default.args = {};
+
+export const WithIconImage = Template.bind({});
+WithIconImage.args = {
+	icon: '/logo.svg',
+};

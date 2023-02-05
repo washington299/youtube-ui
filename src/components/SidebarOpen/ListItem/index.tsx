@@ -23,7 +23,7 @@ export const ListItem = ({
 				}`}
 			>
 				{!!icon ? (
-					<Image src={icon} alt={name} width={20} height={20} />
+					<Image src={icon} alt={name} width={30} height={30} />
 				) : (
 					<>
 						{isCurrentPage && IconSolid && (
