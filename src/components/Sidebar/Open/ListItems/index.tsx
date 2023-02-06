@@ -1,6 +1,6 @@
 import { SidebarItemsProps } from 'hooks/useSidebarOpenItems';
 
-import { ListItem } from 'components/SidebarOpen/ListItem';
+import { ListItem } from 'components/Sidebar/Open/ListItem';
 
 type ListItemsProps = {
 	items: SidebarItemsProps[];

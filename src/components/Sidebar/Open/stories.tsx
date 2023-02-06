@@ -1,17 +1,17 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { SidebarOpen } from '.';
+import { Open } from '.';
 
 export default {
-	title: 'components/SidebarOpen',
-	component: SidebarOpen,
+	title: 'components/Sidebar/Open',
+	component: Open,
 	args: { currentPage: '/' },
-} as ComponentMeta<typeof SidebarOpen>;
+} as ComponentMeta<typeof Open>;
 
-const Template: ComponentStory<typeof SidebarOpen> = args => (
+const Template: ComponentStory<typeof Open> = args => (
 	<div className="bg-slate-100 dark:bg-neutral-900">
-		<SidebarOpen {...args} />
+		<Open {...args} />
 	</div>
 );
 

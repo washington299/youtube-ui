@@ -42,8 +42,8 @@ import {
 	ChatBubbleBottomCenterTextIcon as ChatBubbleBottomCenterTextIconSolid,
 } from '@heroicons/react/24/solid';
 
-import { ListItems } from 'components/SidebarOpen/ListItems';
-import { SignInSection } from 'components/SidebarOpen/SignInSection';
+import { ListItems } from 'components/Sidebar/Open/ListItems';
+import { SignInSection } from 'components/Sidebar/Open/SignInSection';
 
 export type SidebarItemsProps = {
 	IconOutline?: ForwardRefExoticComponent<SVGProps<SVGSVGElement>>;

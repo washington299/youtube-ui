@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 
-import { SidebarOpen } from '.';
+import { Open } from '.';
 
-describe('<SidebarOpen />', () => {
+describe('<Open />', () => {
 	it('Should render elements items list correctly', () => {
-		render(<SidebarOpen currentPage="/" />);
+		render(<Open currentPage="/" />);
 
 		expect(screen.getAllByRole('listitem')).toHaveLength(22);
 		expect(

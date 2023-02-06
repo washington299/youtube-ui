@@ -1,10 +1,14 @@
 import { useRouter } from 'next/router';
 
-import { SidebarOpen } from 'components/SidebarOpen';
-import { SidebarClosed } from 'components/SidebarClosed';
+import { Open } from './Open';
+import { Closed } from './Closed';
 
 type SidebarProps = {
 	isOpen: boolean;
+};
+
+export type SidebarChildProps = {
+	currentPage: string;
 };
 
 export const Sidebar = ({ isOpen }: SidebarProps) => {
@@ -13,9 +17,9 @@ export const Sidebar = ({ isOpen }: SidebarProps) => {
 	return (
 		<>
 			{isOpen ? (
-				<SidebarOpen currentPage={pathname} />
+				<Open currentPage={pathname} />
 			) : (
-				<SidebarClosed currentPage={pathname} />
+				<Closed currentPage={pathname} />
 			)}
 		</>
 	);

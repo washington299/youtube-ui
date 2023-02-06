@@ -1,17 +1,17 @@
 import { render, screen } from '@testing-library/react';
 
-import { SidebarClosed } from '.';
+import { Closed } from '.';
 
-describe('<SidebarClosed />', () => {
+describe('<Closed />', () => {
 	it('Should render elements items list correctly', () => {
-		render(<SidebarClosed currentPage="/" />);
+		render(<Closed currentPage="/" />);
 
 		expect(screen.getByText(/Home/i)).toBeInTheDocument();
 		expect(screen.getAllByRole('listitem')).toHaveLength(5);
 	});
 
 	it('Should render correct icon when is current page', () => {
-		render(<SidebarClosed currentPage="/" />);
+		render(<Closed currentPage="/" />);
 
 		expect(
 			screen.queryByLabelText(/Home icon outline/i),

@@ -1,8 +1,8 @@
 import { useSidebarOpenItems } from 'hooks/useSidebarOpenItems';
 
-import { SidebarProps } from 'components/SidebarClosed';
+import { SidebarChildProps } from 'components/Sidebar';
 
-export const SidebarOpen = ({ currentPage }: SidebarProps) => {
+export const Open = ({ currentPage }: SidebarChildProps) => {
 	const sidebarItems = useSidebarOpenItems(currentPage);
 
 	return (

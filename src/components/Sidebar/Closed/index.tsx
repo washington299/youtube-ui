@@ -1,12 +1,10 @@
 import Link from 'next/link';
 
+import { SidebarChildProps } from 'components/Sidebar';
+
 import { sidebarClosedItems } from './sidebarClosedItems';
 
-export type SidebarProps = {
-	currentPage: string;
-};
-
-export const SidebarClosed = ({ currentPage }: SidebarProps) => {
+export const Closed = ({ currentPage }: SidebarChildProps) => {
 	return (
 		<nav className="h-screen w-20 bg-white dark:bg-neutral-800">
 			<ul className="py-2 dark:text-white">

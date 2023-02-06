@@ -1,17 +1,17 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { SidebarClosed } from '.';
+import { Closed } from '.';
 
 export default {
-	title: 'components/SidebarClosed',
-	component: SidebarClosed,
+	title: 'components/Sidebar/Closed',
+	component: Closed,
 	args: { currentPage: '/' },
-} as ComponentMeta<typeof SidebarClosed>;
+} as ComponentMeta<typeof Closed>;
 
-const Template: ComponentStory<typeof SidebarClosed> = args => (
+const Template: ComponentStory<typeof Closed> = args => (
 	<div className="h-screen bg-slate-100 dark:bg-neutral-600">
-		<SidebarClosed {...args} />
+		<Closed {...args} />
 	</div>
 );
 
